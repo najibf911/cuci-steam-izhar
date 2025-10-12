@@ -12,7 +12,7 @@ export default function Hero() {
         className="absolute inset-0 z-10 lg:w-full lg:h-full"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/2549942/pexels-photo-2549942.jpeg?auto=format&fit=crop&w=1920&q=80')",
+            "url('https://res.cloudinary.com/daud2fvro/image/upload/v1760293622/hero_km8xnm.avif?auto=format&fit=crop&w=1920&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -20,7 +20,7 @@ export default function Hero() {
       />
       {/* Content in front of background */}
       <div className="relative z-10 mx-1 lg:mx-0 w-full max-w-4xl">
-        <div className="p-6 sm:p-8 lg:p-10 rounded-2xl dark:bg-black/20 light:bg-white/10 ring-1 ring-white/15 shadow-2xl shadow-black/20">
+        <div className="p-6 sm:p-8 lg:p-10 rounded-2xl dark:bg-black/20 light:bg-white/10 backdrop-blur-md ring-1 ring-white/15 shadow-2xl shadow-black/20">
           <div className="mb-4 flex justify-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm text-blue-50 ring-1 ring-white/20">
           <svg
