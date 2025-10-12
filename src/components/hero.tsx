@@ -9,7 +9,7 @@ export default function Hero() {
     >
       {/* Background image */}
       <div
-        className="absolute inset-0 z-10 w-full h-auto lg:h-full"
+        className="absolute inset-0 z-10 lg:w-full lg:h-full"
         style={{
           backgroundImage:
             "url('https://images.pexels.com/photos/2549942/pexels-photo-2549942.jpeg?auto=format&fit=crop&w=1920&q=80')",
