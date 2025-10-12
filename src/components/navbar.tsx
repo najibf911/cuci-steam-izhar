@@ -10,7 +10,7 @@ export default function Navbar() {
               href="#home"
               className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400/70 rounded"
             >
-              <Image src="/Izhar-motowash3.PNG" alt="Logo" width={40} height={40} />
+              <Image src="https://res.cloudinary.com/daud2fvro/image/upload/v1760292792/Izhar-motowash3_hvovke.png" alt="Logo" width={40} height={40} />
               <h1 className="text-xl font-bold tracking-wide sm:text-2xl">
                 Cuci Steam Izhar
               </h1>

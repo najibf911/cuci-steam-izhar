@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: "Cuci Steam Izhar — Cuci motor cepat, bersih, dan terpercaya.",
   },
   icons: {
-    icon: "/Izhar-motowash2.png",
+    icon: "https://res.cloudinary.com/daud2fvro/image/upload/v1760292791/Izhar-motowash2_gg1cgw.png",
   },
 };
 
