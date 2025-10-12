@@ -1,0 +1,26 @@
+{
+  "produkList": [
+    { "nama": "Cuci Steam Motor Bebek", "harga": "Rp 25.000" },
+    { "nama": "Cuci Steam Motor Matic", "harga": "Rp 25.000" },
+    { "nama": "Cuci Steam Motor Sport", "harga": "Rp 30.000" },
+    { "nama": "Cuci Steam Motor Trail", "harga": "Rp 30.000" },
+    { "nama": "Cuci Steam Motor Vespa", "harga": "Rp 30.000" },
+    { "nama": "Cuci Steam Motor Listrik", "harga": "Rp 25.000" },
+    { "nama": "Cuci Steam Motor Custom", "harga": "Rp 35.000" },
+    { "nama": "Cuci Steam Motor Touring", "harga": "Rp 35.000" },
+    { "nama": "Cuci Steam Motor Klasik", "harga": "Rp 35.000" },
+    { "nama": "Cuci Steam Motor Mini", "harga": "Rp 20.000" }
+  ],
+  "produkImages": [
+    "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/72/2024/06/06/WhatsApp-Image-2024-06-06-at-150323-3449580855.jpeg?auto=format&fit=crop&w=400&q=80",
+    "https://s3.ap-southeast-1.amazonaws.com/img.jba.co.id//wysiwyg/ckeditor/20241024120032coverRN1DdjgC.webp?auto=format&fit=crop&w=400&q=80",
+    "https://images.pexels.com/photos/2549942/pexels-photo-2549942.jpeg?auto=format&fit=crop&w=400&q=80",
+    "https://images.pexels.com/photos/2007126/pexels-photo-2007126.jpeg?auto=format&fit=crop&w=400&q=80",
+    "https://harianbanyuasin.bacakoran.co/upload/1f14b90a27239f7b032427d46f13674f.jpg?auto=format&fit=crop&w=400&q=80",
+    "https://images.tokopedia.net/img/JFrBQq/2023/3/1/7a0ef32b-cd47-42bd-be51-06bc8ca85106.jpg?auto=format&fit=crop&w=400&q=80",
+    "https://images.pexels.com/photos/1191109/pexels-photo-1191109.jpeg?auto=format&fit=crop&w=400&q=80",
+    "https://res.cloudinary.com/mufautoshow/image/upload/f_auto,f_auto/w_1200/v1645147314/moas/news/1645147310_ktm-250-adventure-motor-touring-new-entry-yang-irit-dan-tangguh.png?auto=format&fit=crop&w=400&q=80",
+    "https://mmc.tirto.id/image/2024/05/21/honda-super-cub-c125_ratio-16x9.jpg?auto=format&fit=crop&w=400&q=80",
+    "https://moladin.com/blog/wp-content/uploads/2020/04/Motor-mini_3.jpg?auto=format&fit=crop&w=400&q=80"
+  ]
+}
