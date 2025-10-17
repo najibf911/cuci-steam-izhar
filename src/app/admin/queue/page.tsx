@@ -29,11 +29,12 @@ export default function AdminQueuePage() {
     setError(null);
     setSaving(true);
     try {
+      const sanitized = token.replace(/^Bearer\s+/i, "").trim();
       const res = await fetch("/api/queue", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${sanitized}`,
         },
         body: JSON.stringify({
           position: Number(position),
