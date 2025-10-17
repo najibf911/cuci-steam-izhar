@@ -46,8 +46,7 @@ export default function Advantage() {
             <p className="mt-5 lg:mt-10 text-sm text-gray-600 dark:text-gray-300">
               Tim responsif dan ramah. Hubungi via{" "}
               <a
-                href="https://wa.me/+6281310833392"
-                target="_blank"
+                href="#contact"
                 rel="noopener noreferrer"
                 className="font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 underline decoration-emerald-300/60"
               >

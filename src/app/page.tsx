@@ -1,5 +1,6 @@
 import bgImage from "../../public/background.png";
 import Hero from "@/components/hero";
+import Information from "@/components/information";
 import Advantage from "@/components/advantage";
 import Product from "@/components/product";
 import Pesan from "@/components/pesan";
@@ -10,6 +11,7 @@ function Home() {
     <main>
       <Background />
       <Hero />
+      <Information />
       <Advantage />
       <Product />
       <Pesan />

@@ -1,9 +1,36 @@
 "use client";
 
 import type React from "react";
+import { useEffect, useState } from "react";
 import db from "@/lib/database.json";
 
 export default function Pesan() {
+  const [queue, setQueue] = useState<{
+    position: number;
+    waitMinutes: number;
+    lastUpdated: string;
+  } | null>(null);
+  const [loadingQueue, setLoadingQueue] = useState(false);
+
+  useEffect(() => {
+    const ev = new EventSource("/api/queue/sse");
+    ev.onmessage = (e) => {
+      try {
+        const data = JSON.parse(e.data);
+        setQueue(data);
+      } catch {}
+    };
+    ev.onerror = () => {
+      ev.close();
+      // fallback: try a one-time fetch if needed
+      fetch("/api/queue", { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => d && setQueue(d))
+        .catch(() => {});
+    };
+    return () => ev.close();
+  }, []);
+
   return (
     <section
       id="contact"
@@ -14,9 +41,42 @@ export default function Pesan() {
           <h3 className="mb-2 text-3xl font-semibold tracking-tight text-slate-900">
             Pesan Layanan
           </h3>
-          <p className="mb-8 text-slate-600">
+          <p className="mb-2 text-slate-600">
             Isi formulir di bawah ini untuk memesan via WhatsApp.
           </p>
+          <div className="mb-8 flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700">
+            <div>
+              <p className="text-sm font-medium">Status Antrian</p>
+              {queue ? (
+                <p className="text-sm">
+                  Posisi:{" "}
+                  <span className="font-semibold">#{queue.position}</span> ·
+                  Estimasi:{" "}
+                  <span className="font-semibold">
+                    {queue.waitMinutes} menit
+                  </span>
+                </p>
+              ) : (
+                <p className="text-sm">Memuat antrian…</p>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={async () => {
+                setLoadingQueue(true);
+                try {
+                  const res = await fetch("/api/queue", { cache: "no-store" });
+                  if (res.ok) setQueue(await res.json());
+                } finally {
+                  setLoadingQueue(false);
+                }
+              }}
+              className="cursor-pointer rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:opacity-60"
+              disabled={loadingQueue}
+            >
+              Refresh
+            </button>
+          </div>
 
           <form
             className="grid gap-5"
@@ -38,7 +98,8 @@ export default function Pesan() {
               }
 
               // Ganti dengan nomor WhatsApp admin/usaha (format internasional tanpa +, contoh Indonesia: 62812xxxxxxx)
-              const adminPhone = "6281310833392";
+              const adminPhone = "6285920576070";
+              // const adminPhone = "6281310833392";
 
               const message = [
                 `Halo, saya ${name}.`,
@@ -49,11 +110,21 @@ export default function Pesan() {
                 .filter(Boolean)
                 .join("\n");
 
-              const url = `https://wa.me/${adminPhone}?text=${encodeURIComponent(
-                message
-              )}`;
-              window.open(url, "_blank", "noopener,noreferrer");
+              const isMobile = /Android|iPhone|iPad|iPod/i.test(
+                navigator.userAgent
+              );
+              const baseUrl = isMobile
+                ? `https://wa.me/${adminPhone}?text=${encodeURIComponent(
+                    message
+                  )}`
+                : `https://web.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(
+                    message
+                  )}`;
 
+              window.open(baseUrl, "_blank", "noopener,noreferrer");
+
+
+              
               form.reset();
             }}
           >
@@ -92,7 +163,11 @@ export default function Pesan() {
                   Pilih layanan...
                 </option>
                 {db.produkList?.map((p: { nama: string; harga: string }) => (
-                  <option className="cursor-pointer" key={p.nama} value={`${p.nama} (${p.harga})`}>
+                  <option
+                    className="cursor-pointer"
+                    key={p.nama}
+                    value={`${p.nama} (${p.harga})`}
+                  >
                     {p.nama} = {p.harga}
                   </option>
                 ))}
