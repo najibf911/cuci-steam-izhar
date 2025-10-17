@@ -125,7 +125,7 @@ export default function Hero() {
               <span>Instagram</span>
             </a>
             <a
-              href="https://www.tiktok.com/@cucisteamizhar"
+              href="https://www.tiktok.com/@cucisteamizhar?_t=ZS-90d4jrj2AUx&_r=1"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Kunjungi TikTok kami"
