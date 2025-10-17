@@ -1,0 +1,9 @@
+# Update queue to position 3, estimate 10 minutes on Vercel
+$token = "<your-token>"
+$body  = @{ position = 3; waitMinutes = 10 } | ConvertTo-Json
+
+Invoke-RestMethod -Method Post `
+  -Uri "https://cucisteam-izhar.vercel.app//api/queue" `
+  -Headers @{ Authorization = "Bearer $token" } `
+  -ContentType 'application/json' `
+  -Body $body

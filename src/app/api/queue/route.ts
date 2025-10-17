@@ -12,6 +12,13 @@ export async function GET() {
 // Optional: allow POST updates (e.g., from an admin tool)
 export async function POST(request: Request) {
   try {
+    // Simple bearer token auth for production updates
+    const auth = request.headers.get("authorization") || "";
+    const expected = process.env.QUEUE_ADMIN_TOKEN;
+    if (!expected || !auth.startsWith("Bearer ") || auth.slice(7) !== expected) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const body = await request.json();
     const position = Number(body.position);
     const waitMinutes = Number(body.waitMinutes);
