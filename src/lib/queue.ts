@@ -5,8 +5,8 @@ export type QueueState = {
 };
 
 let queueState: QueueState = {
-  position: 5,
-  waitMinutes: 15,
+  position: 0,
+  waitMinutes: 0,
   lastUpdated: new Date().toISOString(),
 };
 
